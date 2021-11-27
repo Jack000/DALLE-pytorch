@@ -609,7 +609,7 @@ for epoch in range(resume_epoch, EPOCHS):
 
                 if not avoid_model_calls:
                     # CUDA index errors when we don't guard this
-                    image = dalle.generate_images(text[:1], filter_thres=0.9)  # topk sampling at 0.9
+                    image = dalle.generate_images(text[:1], top_p_thres=0.9)  # topp sampling at 0.9
 
 
                 log = {

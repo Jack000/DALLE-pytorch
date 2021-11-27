@@ -55,6 +55,22 @@ def top_k(logits, thres = 0.5):
     probs.scatter_(1, ind, val)
     return probs
 
+def top_p(logits, thres = 0.9):
+    sorted_logits, sorted_indices = torch.sort(logits, descending=True)
+    cumulative_probs = torch.cumsum(F.softmax(sorted_logits, dim=-1), dim=-1)
+
+    # Remove tokens with cumulative probability above the threshold
+    sorted_indices_to_remove = cumulative_probs > thres
+    
+    # Shift the indices to the right to keep also the first token above the threshold
+    sorted_indices_to_remove[..., 1:] = sorted_indices_to_remove[..., :-1].clone()
+    sorted_indices_to_remove[..., 0] = 0
+
+    # scatter sorted tensors to original indexing
+    indices_to_remove = sorted_indices_to_remove.scatter(dim=1, index=sorted_indices, src=sorted_indices_to_remove)
+    logits[indices_to_remove] = float('-inf')
+    return logits
+
 # discrete vae class
 
 class ResBlock(nn.Module):
@@ -331,9 +347,11 @@ class DALLE(nn.Module):
         super().__init__()
         assert isinstance(vae, (DiscreteVAE, OpenAIDiscreteVAE, VQGanVAE)), 'vae must be an instance of DiscreteVAE'
 
-        image_size = vae.image_size
+        #image_size = vae.image_size
+        image_size = 128
         num_image_tokens = vae.num_tokens
-        image_fmap_size = (vae.image_size // (2 ** vae.num_layers))
+        #image_fmap_size = (vae.image_size // (2 ** vae.num_layers))
+        image_fmap_size = 16
         image_seq_len = image_fmap_size ** 2
 
         num_text_tokens = num_text_tokens + text_seq_len  # reserve unique padding tokens for each position (text seq len)
@@ -458,7 +476,8 @@ class DALLE(nn.Module):
         *,
         clip = None,
         mask = None,
-        filter_thres = 0.5,
+        top_k_thresh = None,
+        top_p_thresh = None,
         temperature = 1.,
         img = None,
         num_init_img_tokens = None
@@ -487,7 +506,11 @@ class DALLE(nn.Module):
 
             logits = self(text, image, mask = mask)[:, -1, :]
 
-            filtered_logits = top_k(logits, thres = filter_thres)
+            if top_k_thresh is not None:
+                filtered_logits = top_k(logits, thres = top_k_thresh)
+            else:
+                filtered_logits = top_p(logits, thres = top_p_thresh)
+
             probs = F.softmax(filtered_logits / temperature, dim = -1)
             sample = torch.multinomial(probs, 1)
 
