@@ -31,7 +31,7 @@ Non-Cherry picked images (clip re-ranked best 8 out of 1024):
 
 <table>
 <tr><td><img src="./images/cloud-0.png"></img></td><td><img src="./images/cloud-1.png"></img></td><td><img src="./images/cloud-2.png"></img></td><td><img src="./images/cloud-3.png"></img></td></tr>
-<tr><td><img src="./images/cloud-4.png"></img></td><td><img src="./images/cloud-5.png"></img></td><td><img src="./images/cloud-6.png"></img></td><td><img src="./images/avocado-7.png"></img></td></tr>
+<tr><td><img src="./images/cloud-4.png"></img></td><td><img src="./images/cloud-5.png"></img></td><td><img src="./images/cloud-6.png"></img></td><td><img src="./images/cloud-7.png"></img></td></tr>
 <tr><td colspan="4">A cube made of cloud. A cube with the texture of cloud</td></tr>
 </table>
 
