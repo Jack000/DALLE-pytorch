@@ -17,7 +17,7 @@ Cherry picked sample images:
 <tr><td><img src="./images/cube-porcupine-before.jpg" alt="a cube made of porcupine - before" width="256"></img></td><td><img src="./images/cube-porcupine.png" alt="a cube made of porcupine"></img></td></tr>
 <tr><td colspan="2"><sub>Prompt: A cube made of porcupine, a cube with the texture of porcupine</sub></td></tr>
 
-<tr><td><img src="./images/avocado-before.png" alt="an armchair shaped like an avocado, an avocado armchair - before" width="256"></img></td><td><img src="./images/avocado.png" alt="an armchair shaped like an avocado, an avocado armchair"></img></td></tr>
+<tr><td><img src="./images/avocado-before.jpg" alt="an armchair shaped like an avocado, an avocado armchair - before" width="256"></img></td><td><img src="./images/avocado.png" alt="an armchair shaped like an avocado, an avocado armchair"></img></td></tr>
 <tr><td colspan="2"><sub>Prompt: An armchair shaped like an avocado, an avocado armchair</sub></td></tr>
 
 <tr><td><img src="./images/girl-glasses-before.png" alt="a girl with thick glasses - before" width="256"></img></td><td><img src="./images/girl-glasses.png" alt="a girl with thick glasses"></img></td></tr>
@@ -30,13 +30,21 @@ Cherry picked sample images:
 Non-Cherry picked images (clip re-ranked best 8 out of 1024):
 
 <table>
-<tr><td><img src="./images/avocado-0.png"></img></td><td><img src="./images/avocado-1.png"></img></td><td><img src="./images/avocado-2.png"></img></td><td><img src="./images/avocado-3.png"></img></td><td><img src="./images/avocado-4.png"></img></td><td><img src="./images/avocado-5.png"></img></td><td><img src="./images/avocado-6.png"></img></td><td><img src="./images/avocado-7.png"></img></td></tr>
-<tr><td colspan="8">An armchair shaped like an avocado. An avocado armchair</td></tr>
+<tr><td><img src="./images/cloud-0.png"></img></td><td><img src="./images/cloud-1.png"></img></td><td><img src="./images/cloud-2.png"></img></td><td><img src="./images/cloud-3.png"></img></td></tr>
+<tr><td><img src="./images/cloud-4.png"></img></td><td><img src="./images/cloud-5.png"></img></td><td><img src="./images/cloud-6.png"></img></td><td><img src="./images/avocado-7.png"></img></td></tr>
+<tr><td colspan="4">A cube made of cloud. A cube with the texture of cloud</td></tr>
 </table>
 
 <table>
-<tr><td><img src="./images/girl-0.png"></img></td><td><img src="./images/girl-1.png"></img></td><td><img src="./images/girl-2.png"></img></td><td><img src="./images/girl-3.png"></img></td><td><img src="./images/girl-4.png"></img></td><td><img src="./images/girl-5.png"></img></td><td><img src="./images/girl-6.png"></img></td><td><img src="./images/girl-7.png"></img></td></tr>
-<tr><td colspan="8">A girl with thick glasses. A girl wearing glasses</td></tr>
+<tr><td><img src="./images/avocado-0.png"></img></td><td><img src="./images/avocado-1.png"></img></td><td><img src="./images/avocado-2.png"></img></td><td><img src="./images/avocado-3.png"></img></td></tr>
+<tr><td><img src="./images/avocado-4.png"></img></td><td><img src="./images/avocado-5.png"></img></td><td><img src="./images/avocado-6.png"></img></td><td><img src="./images/avocado-7.png"></img></td></tr>
+<tr><td colspan="4">An armchair shaped like an avocado. An avocado armchair</td></tr>
+</table>
+
+<table>
+<tr><td><img src="./images/girl-0.png"></img></td><td><img src="./images/girl-1.png"></img></td><td><img src="./images/girl-2.png"></img></td><td><img src="./images/girl-3.png"></img></td></tr>
+<tr><td><img src="./images/girl-4.png"></img></td><td><img src="./images/girl-5.png"></img></td><td><img src="./images/girl-6.png"></img></td><td><img src="./images/girl-7.png"></img></td></tr>
+<tr><td colspan="4">A girl with thick glasses. A girl wearing glasses</td></tr>
 </table>
 
 ## Usage
