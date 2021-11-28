@@ -117,6 +117,9 @@ image_size = vae.image_size
 texts = args.text.split('|')
 
 for j, text in tqdm(enumerate(texts)):
+
+    text = text.lower()
+
     if args.gentxt:
         text_tokens, gen_texts = dalle.generate_texts(tokenizer, text=text, filter_thres = args.top_k)
         text = gen_texts[0]
