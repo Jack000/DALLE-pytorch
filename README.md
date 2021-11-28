@@ -8,32 +8,36 @@ minor modifications to DALLE-pytorch:
 
 Cherry picked sample images:
 
-| Before diffusion | After diffusion |
-| --- | --- |
-| <img src="./images/cube-cloud-before.jpg" alt="a cube made of cloud - before"></img> | <img src="./images/cube-cloud.png" alt="a cube made of cloud"></img> |
-| <sub>Prompt: A cube made of cloud, a cube with the texture of cloud</sub> | &nbsp; |
-| <img src="./images/cube-water-before.jpg" alt="a cube made of water - before"></img> | <img src="./images/cube-water.png" alt="a cube made of water"></img> |
-| <sub>Prompt: A cube made of water, a cube with the texture of water</sub> | &nbsp; |
-| <img src="./images/cube-porcupine-before.jpg" alt="a cube made of porcupine - before"></img> | <img src="./images/cube-porcupine.png" alt="a cube made of porcupine"></img> |
-| <sub>Prompt: A cube made of porcupine, a cube with the texture of porcupine</sub> | &nbsp; |
-| <img src="./images/avocado-before.png" alt="an armchair shaped like an avocado, an avocado armchair - before"></img> | <img src="./images/girl-glasses.png" alt="a girl with thick glasses"></img> |
-| <sub>Prompt: An armchair shaped like an avocado, an avocado armchair</sub> | &nbsp; |
-| <img src="./images/girl-glasses-before.png" alt="a girl with thick glasses - before"></img> | <img src="./images/avocado.png" alt="an armchair shaped like an avocado, an avocado armchair"></img> |
-| <sub>Prompt: A girl with thick glasses, a girl wearing glasses</sub> | &nbsp; |
-| <img src="./images/researcher-mad-before.png" alt="a machine learning researcher smashes his computer in a fit of rage - before"></img> | <img src="./images/researcher-mad.png" alt="a machine learning researcher smashes his computer in a fit of rage"></img> |
-| <sub>Prompt: A machine learning researcher smashes his computer in a fit of rage</sub> | &nbsp; |
+<table>
+<tr><th>Before diffusion</th><th>After diffusion</th></tr>
+<tr><td><img src="./images/cube-cloud-before.jpg" alt="a cube made of cloud - before" width="256"></img></td><td><img src="./images/cube-cloud.png" alt="a cube made of cloud"></img></td></tr>
+<tr><td colspan="2"><sub>Prompt: A cube made of cloud, a cube with the texture of cloud</sub></td></tr>
+<tr><td><img src="./images/cube-water-before.jpg" alt="a cube made of water - before" width="256"></img></td><td><img src="./images/cube-water.png" alt="a cube made of water"></img></td></tr>
+<tr><td colspan="2"><sub>Prompt: A cube made of water, a cube with the texture of water</sub></td></tr>
+<tr><td><img src="./images/cube-porcupine-before.jpg" alt="a cube made of porcupine - before" width="256"></img></td><td><img src="./images/cube-porcupine.png" alt="a cube made of porcupine"></img></td></tr>
+<tr><td colspan="2"><sub>Prompt: A cube made of porcupine, a cube with the texture of porcupine</sub></td></tr>
+
+<tr><td><img src="./images/avocado-before.png" alt="an armchair shaped like an avocado, an avocado armchair - before" width="256"></img></td><td><img src="./images/avocado.png" alt="an armchair shaped like an avocado, an avocado armchair"></img></td></tr>
+<tr><td colspan="2"><sub>Prompt: An armchair shaped like an avocado, an avocado armchair</sub></td></tr>
+
+<tr><td><img src="./images/girl-glasses-before.png" alt="a girl with thick glasses - before" width="256"></img></td><td><img src="./images/girl-glasses.png" alt="a girl with thick glasses"></img></td></tr>
+<tr><td colspan="2"><sub>Prompt: A girl with thick glasses, a girl wearing glasses</sub></td></tr>
+
+<tr><td><img src="./images/researcher-mad-before.png" alt="a machine learning researcher smashes his computer in a fit of rage - before" width="256"></img></td><td><img src="./images/researcher-mad.png" alt="a machine learning researcher smashes his computer in a fit of rage"></img></td></tr>
+<tr><td colspan="2"><sub>Prompt: A machine learning researcher smashes his computer in a fit of rage</sub></td></tr>
+</table>
 
 Non-Cherry picked images (clip re-ranked best 8 out of 1024):
 
-|  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| <img src="./images/avocado-0.png"></img> | <img src="./images/avocado-1.png"></img> | <img src="./images/avocado-2.png"></img> | <img src="./images/avocado-3.png"></img> | <img src="./images/avocado-4.png"></img> | <img src="./images/avocado-5.png"></img> | <img src="./images/avocado-6.png"></img> | <img src="./images/avocado-7.png"></img> |
-An armchair shaped like an avocado. An avocado armchair
+<table>
+<tr><td><img src="./images/avocado-0.png"></img></td><td><img src="./images/avocado-1.png"></img></td><td><img src="./images/avocado-2.png"></img></td><td><img src="./images/avocado-3.png"></img></td><td><img src="./images/avocado-4.png"></img></td><td><img src="./images/avocado-5.png"></img></td><td><img src="./images/avocado-6.png"></img></td><td><img src="./images/avocado-7.png"></img></td></tr>
+<tr><td colspan="8">An armchair shaped like an avocado. An avocado armchair</td></tr>
+</table>
 
-|  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| <img src="./images/girl-0.png"></img> | <img src="./images/girl-1.png"></img> | <img src="./images/girl-2.png"></img> | <img src="./images/girl-3.png"></img> | <img src="./images/girl-4.png"></img> | <img src="./images/girl-5.png"></img> | <img src="./images/girl-6.png"></img> | <img src="./images/girl-7.png"></img> |
-A girl with thick glasses. A girl wearing glasses
+<table>
+<tr><td><img src="./images/girl-0.png"></img></td><td><img src="./images/girl-1.png"></img></td><td><img src="./images/girl-2.png"></img></td><td><img src="./images/girl-3.png"></img></td><td><img src="./images/girl-4.png"></img></td><td><img src="./images/girl-5.png"></img></td><td><img src="./images/girl-6.png"></img></td><td><img src="./images/girl-7.png"></img></td></tr>
+<tr><td colspan="8">A girl with thick glasses. A girl wearing glasses</td></tr>
+</table>
 
 ## Usage
 ```# git clone this repo, then
