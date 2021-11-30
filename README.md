@@ -19,7 +19,7 @@ Cherry picked sample images:
 <tr><td><img src="./images/cube-porcupine-before.jpg" alt="a cube made of porcupine - before" width="256"></img></td><td><img src="./images/cube-porcupine.png" alt="a cube made of porcupine"></img></td></tr>
 <tr><td colspan="2"><sub>Prompt: A cube made of porcupine, a cube with the texture of porcupine</sub></td></tr>
 
-<tr><td><img src="./images/avocado-before.jpg" alt="an armchair shaped like an avocado, an avocado armchair - before" width="256"></img></td><td><img src="./images/avocado.png" alt="an armchair shaped like an avocado, an avocado armchair"></img></td></tr>
+<tr><td><img src="./images/avocado-before.png" alt="an armchair shaped like an avocado, an avocado armchair - before" width="256"></img></td><td><img src="./images/avocado.png" alt="an armchair shaped like an avocado, an avocado armchair"></img></td></tr>
 <tr><td colspan="2"><sub>Prompt: An armchair shaped like an avocado, an avocado armchair</sub></td></tr>
 
 <tr><td><img src="./images/girl-glasses-before.png" alt="a girl with thick glasses - before" width="256"></img></td><td><img src="./images/girl-glasses.png" alt="a girl with thick glasses"></img></td></tr>
