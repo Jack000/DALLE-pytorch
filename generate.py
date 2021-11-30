@@ -19,6 +19,8 @@ from torchvision.transforms import functional as TF
 from dalle_pytorch import DiscreteVAE, OpenAIDiscreteVAE, VQGanVAE, DALLE
 from dalle_pytorch.tokenizer import tokenizer, HugTokenizer, YttmTokenizer, ChineseTokenizer
 
+import numpy as np
+
 # argument parsing
 
 parser = argparse.ArgumentParser()
@@ -63,6 +65,8 @@ parser.add_argument('--hug', dest='hug', action = 'store_true')
 parser.add_argument('--chinese', dest='chinese', action = 'store_true')
 
 parser.add_argument('--taming', dest='taming', action='store_true')
+
+parser.add_argument('--output_npy', dest='output_npy', action='store_true')
 
 parser.add_argument('--gentxt', dest='gentxt', action='store_true')
 
@@ -129,18 +133,25 @@ for j, text in tqdm(enumerate(texts)):
     text_tokens = repeat(text_tokens, '() n -> b n', b = args.num_images)
 
     outputs = []
+    tokens = []
 
     for text_chunk in tqdm(text_tokens.split(args.batch_size), desc = f'generating images for - {text}'):
         if args.top_k is not None:
-            output = dalle.generate_images(text_chunk, temperature=args.temperature, top_k_thresh = args.top_k)
+            output, tok = dalle.generate_images(text_chunk, temperature=args.temperature, top_k_thresh = args.top_k, return_tokens = args.output_npy)
         elif args.top_p is not None:
-            output = dalle.generate_images(text_chunk, temperature=args.temperature, top_p_thresh = args.top_p)
+            output, tok = dalle.generate_images(text_chunk, temperature=args.temperature, top_p_thresh = args.top_p, return_tokens = args.output_npy)
         else:
-            output = dalle.generate_images(text_chunk, temperature=1.0, top_p_thresh = 0.9)
+            output, tok = dalle.generate_images(text_chunk, temperature=1.0, top_p_thresh = 0.9, return_tokens = args.output_npy)
 
         outputs.append(output)
 
+        if tok is not None:
+            tokens.append(tok)
+
     outputs = torch.cat(outputs)
+
+    if len(tokens) > 0:
+        tokens = torch.cat(tokens).cpu().detach().numpy()
 
     # save all images
     file_name = text 
@@ -152,6 +163,9 @@ for j, text in tqdm(enumerate(texts)):
             save_image(image, outputs_dir / f'{i}.jpg', normalize=True)
             with open(outputs_dir / 'caption.txt', 'w') as f:
                 f.write(file_name)
+            if args.output_npy:
+                with open(outputs_dir / f'{i}.npy', 'wb') as f:
+                    np.save(f, tokens[i])
     else:
         images_sorted = []
         for i, image in enumerate(outputs):
@@ -166,11 +180,15 @@ for j, text in tqdm(enumerate(texts)):
 
             similarity = torch.nn.functional.cosine_similarity(image_features, text_features, dim=-1)
 
-            images_sorted.append((image, similarity.item()))
+            tup = (image, similarity.item(), tokens[i] if args.output_npy else None)
+            images_sorted.append(tup)
 
         images_sorted.sort(key=lambda x:x[1], reverse=True)
 
         for i, image in enumerate(images_sorted):
             save_image(image[0], outputs_dir / f'{i}-{image[1]}.png', normalize=True)
+            if args.output_npy:
+                with open(outputs_dir / f'{i}.npy', 'wb') as f:
+                    np.save(f, image[2])
 
     print(f'created {args.num_images} images at "{str(outputs_dir)}"')

@@ -2,7 +2,7 @@
 
 DALL-3 is a mashup of DALLE-pytorch, VQGAN and Clip-Guided Diffusion. The basic idea is to use a diffusion model instead of VAE for the decoder stage, which allows us to use 16x16 tokens instead of 32x32 while maintaining comparable image quality.
 
-This DALLE model is meant to be used with https://github.com/Jack000/guided-diffusion (they were trained with the same VQ embeddings) but the diffusion model can be used to "re-interpret" any image, including those generated using f16 VQVAE variants, ru-DALLE etc.
+This DALLE model is meant to be used with https://github.com/Jack000/guided-diffusion
 
 minor modifications to DALLE-pytorch:
 - hardcoded 128px image size in dalle (in order to use mismatched VAE/DALLE image sizes)
@@ -64,10 +64,10 @@ wget https://dall-3.com/models/dalle/bpe.model
 wget https://dall-3.com/models/dalle/dalle-latest.pt
 
 # generate (optionally install OpenAI clip for --clip_sort)
-python generate.py --top_p 0.9 --temperature 1.0 --clip_sort --dalle_path ./dalle-latest.pt --bpe_path bpe.model --taming --vqgan_model_path vqgan_gumbel_f8/last.ckpt --vqgan_config_path vqgan_gumbel_f8/model.yaml --text 'a girl with thick glasses. a girl wearing glasses'
+python generate.py --top_p 0.85 --temperature 1.0 --clip_sort --output_npy --dalle_path ./dalle-latest.pt --bpe_path bpe.model --taming --vqgan_model_path vqgan_gumbel_f8/last.ckpt --vqgan_config_path vqgan_gumbel_f8/model.yaml --text 'a girl with thick glasses. a girl wearing glasses'
 
 # post process
-# take the best pngs and plug them into conditional clip guided diffusion https://github.com/Jack000/guided-diffusion
+# use the npy file as input to clip guided diffusion https://github.com/Jack000/guided-diffusion
 
 ```
 

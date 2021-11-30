@@ -480,7 +480,8 @@ class DALLE(nn.Module):
         top_p_thresh = None,
         temperature = 1.,
         img = None,
-        num_init_img_tokens = None
+        num_init_img_tokens = None,
+        return_tokens = False
     ):
         vae, text_seq_len, image_seq_len, num_text_tokens = self.vae, self.text_seq_len, self.image_seq_len, self.num_text_tokens
         total_len = text_seq_len + image_seq_len
@@ -529,7 +530,10 @@ class DALLE(nn.Module):
             scores = clip(text_seq, images, return_loss = False)
             return images, scores
 
-        return images
+        if return_tokens:
+            return images, img_seq
+        else:
+            return images, None
 
     def forward(
         self,
