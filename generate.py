@@ -169,8 +169,10 @@ for j, text in tqdm(enumerate(texts)):
     else:
         images_sorted = []
         for i, image in enumerate(outputs):
-            image = image.add(1).div(2).clamp(0, 1)
+            image = image.clamp(-1,1)
             pimg = TF.to_pil_image(image)
+            image = image.add(1).div(2)
+
 
             text_features = clip_model.encode_text(clip.tokenize(text).to(device))
             text_features = text_features / text_features.norm(dim=-1, keepdim=True)
