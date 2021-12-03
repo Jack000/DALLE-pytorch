@@ -1,5 +1,10 @@
 # DALL-3
 
+try it out on colab 
+<a href="https://colab.research.google.com/drive/1SlcC0u-tzCrHYL7yYP_DkKu8x0ehXBv0?usp=sharing">
+    <img alt="Dall-3 colab link" src="https://colab.research.google.com/assets/colab-badge.svg">
+</a>
+  
 DALL-3 is a mashup of DALLE-pytorch, VQGAN and Clip-Guided Diffusion. The basic idea is to use a diffusion model instead of VAE for the decoder stage, which allows us to use 16x16 tokens instead of 32x32 while maintaining comparable image quality.
 
 This DALLE model is meant to be used with https://github.com/Jack000/guided-diffusion
